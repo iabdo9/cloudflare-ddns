@@ -31,7 +31,7 @@ git clone https://github.com/abdooo9/cloudflare-ddns.git
     <p> Support me 🌹
     <br />
     <br />
-        <a href="https://paypal.me/abd0009"><img src="https://cdn-icons-png.flaticon.com/512/888/888870.png" width="70" alt="Support me 🌹" /></a>
+        <a href="https://patreon.com/abdo9/"><img src="https://seeklogo.com/images/P/patreon-logo-93191455CE-seeklogo.com.png" width="70" alt="Abdooo9 Support" /></a>
     </p>
     <br/>
 </div>
