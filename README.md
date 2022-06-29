@@ -18,7 +18,8 @@ git clone https://github.com/abdooo9/cloudflare-ddns.git
 2. Create new API Keys with [Cloudfalre API Tokens Panel](https://dash.cloudflare.com/profile/api-tokens) with `read`, `edit` Permissions
 3. Now we need modification environments
     - change `.env.example` file name to `.env`
-    - Type your `zoneID` (You can get it from dashboard), `email`(Cloudfalre Account Email), `readAuthKey` and `editAuthKey` in `.env` file after equal sign
+    - change `config.json.example` file name to `config.json`
+    - Type your `zoneID` in config.json (You can get it from dashboard), `readAuthKey` and `editAuthKey` in `.env` file after equal sign
 4. Run App
     - Type `npm i` in your command line 
     - Type `node index.js`

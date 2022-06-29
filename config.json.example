@@ -1,0 +1,8 @@
+[
+    {
+        "id": "ZONE_ID",
+        "exclude": [
+            "subdomain.domain.com"
+        ]
+    }
+]
