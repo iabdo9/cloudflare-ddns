@@ -2,7 +2,7 @@ const fetch = require("node-fetch")
 require("dotenv").config()
 const zones = require("./config.json")
 
-setTimeout(async function () {
+setInterval(async function () {
     const ip = await fetch("https://api.ipify.org?format=json").then(res => res.text())
 
     zones.forEach(async zone => {
@@ -37,4 +37,4 @@ setTimeout(async function () {
             }
         })
     })
-}, 1000)
+}, 1000 * 60 * 5)
