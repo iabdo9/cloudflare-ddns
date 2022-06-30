@@ -2,10 +2,11 @@ const fetch = require("node-fetch")
 require("dotenv").config()
 const zones = require("./config.json")
 
-setInterval(async function () {
+setTimeout(async function () {
     const ip = await fetch("https://api.ipify.org?format=json").then(res => res.text())
 
     zones.forEach(async zone => {
+        console.log(process.env.readAuthKey)
         const dns_records = await fetch(`https://api.cloudflare.com/client/v4/zones/${zone.id}/dns_records?type=A`, {
             method: "GET",
             headers: {
@@ -13,6 +14,7 @@ setInterval(async function () {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
+        console.log(dns_records)
 
         dns_records.result.forEach(async record => {
             if (zone.exclude.includes(record.name)) return
@@ -30,7 +32,9 @@ setInterval(async function () {
                     proxied: true
                 })
             }).then(res => res.json())
-            console.log(`Record ${newRecord.result.name} updated to ${ip} At ${new Date(newRecord.result.modified_on).toLocaleTimeString()}`)
+            if (newRecord.success !== false) {
+                console.log(`Record ${newRecord.result.name} updated to ${ip} At ${new Date(newRecord.result.modified_on).toLocaleTimeString()}`)
+            }
         })
     })
-}, 1000 * 60 * 5)
+}, 1000)
